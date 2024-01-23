@@ -1,0 +1,14 @@
+{
+    "name": "small-project",
+    "author": "Jesulayomy",
+    "version": "1.0.0",
+    "dependencies": {},
+    "devDependencies": {},
+    "description": "A very small project",
+    "keywords": ["small", "project", "nodejs", "tutorial"],
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Jesulayomy/n_basics.git"
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "st3-pakage-manager",
+  "version": "1.0.0",
+  "description": "Test package manager",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jesulayomy/n_basics.git#master"
+  },
+  "keywords": [
+    "git",
+    "nodejs",
+    "3mtt"
+  ],
+  "author": "Jesulayomy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jesulayomy/n_basics/issues"
+  },
+  "homepage": "https://github.com/Jesulayomy/n_basics/tree/master#readme",
+  "dependencies": {
+    "mathjs": "^12.3.0"
+  }
+}
