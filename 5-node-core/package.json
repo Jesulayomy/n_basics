@@ -1,0 +1,19 @@
+{
+  "name": "5-node-core",
+  "version": "1.0.0",
+  "description": "Node core path, os and process",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "path",
+    "process",
+    "os"
+  ],
+  "author": "Jesulayomy",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.1"
+  }
+}

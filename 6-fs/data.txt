@@ -1,0 +1,3 @@
+Please Click on this link to access the resource folder for this lesson.
+
+fs: The fs module provides a lot of very useful functionality to access and interact with the file system. You can create, read, update and delete files and folders.

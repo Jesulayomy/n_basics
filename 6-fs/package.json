@@ -1,0 +1,16 @@
+{
+  "name": "6-fs",
+  "version": "1.0.0",
+  "description": "Learning the FS module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fs",
+    "files",
+    "folders"
+  ],
+  "author": "Jesulayomy",
+  "license": "MIT"
+}
