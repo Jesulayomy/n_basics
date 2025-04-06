@@ -1,0 +1,24 @@
+{
+  "name": "week9-day0",
+  "version": "1.0.0",
+  "description": "Node basics",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "[events",
+    "urls",
+    "paths",
+    "os",
+    "files]"
+  ],
+  "author": "Jesulayomi <jesulayomi081@gmail.com> (https://www.jesulayomi.tech/)",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
+}
