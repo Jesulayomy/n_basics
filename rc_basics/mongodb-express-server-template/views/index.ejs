@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="This is where your description goes">
+	<meta name="keywords" content="one, two, three">
+
+	<title>Star Wars quotes</title>
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h1>May Node and Express be with you.</h1>
+
+	<form action="/quotes" method="POST">
+		<input type="text" placeholder="name" name="name" />
+		<input type="text" placeholder="quote" name="quote" />
+		<button type="submit">Submit</button>
+	</form>
+	<section>
+		<h2>Darth Vader invades!</h2>
+		<p>Replace first Mogwli's quote with a quote written by Darth Vader</p>
+		<button id="update-button">Replace Mogwli's quote</button>
+	</section>
+	<section>
+		<h2>Remove Darth Vader!</h2>
+		<p>
+			Delete one Darth Vader's quote. Does nothing if there are no more Darth
+			Vader's quote
+		</p>
+		<div id="message"></div>
+		<button id="delete-button">Delete Darth Vader's quote</button>
+	</section>
+
+	<section class="quotes">
+		<% for(let i = 0; i < quotes.length; i++) {%>
+			<div>
+				<h5 class="name"><%= quotes[i].name %></h5>
+				<blockquote class="quote"><%= quotes[i].quote %></blockquote>
+			</div>
+		<% } %>
+	</section>
+
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
