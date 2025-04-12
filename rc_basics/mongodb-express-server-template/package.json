@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "",
+    "express": "",
+    "mongodb": ""
+  },
+  "devDependencies": {
+    "nodemon": ""
+  }
+}

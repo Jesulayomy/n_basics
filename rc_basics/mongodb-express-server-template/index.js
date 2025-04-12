@@ -1,8 +1,9 @@
 const express = require('express');
 const mongodb = require('mongodb');
+require('dotenv').config();
 
 
-const DB_URL = "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.4.2 "; // process.env['DB_URL2'];
+const DB_URL = process.env.DB_URL;
 
 
 const app = express();
