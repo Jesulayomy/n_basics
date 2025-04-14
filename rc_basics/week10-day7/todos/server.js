@@ -44,7 +44,6 @@ MongoClient.connect(url).then((client) => {
   });
 
   app.delete('/todos', (req, res) => {
-    // , msg: req.body.msg
     db.collection('todos').findOneAndDelete({todo: req.body.todo}).then(result => {
       res.send('Task deleted!');
     });
