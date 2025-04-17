@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="description">
+	<meta name="keywords" content="onetwothree">
+
+	<title><%= item.name %></title>
+
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body class="p-5">
+	<h1 class="text-center">Public Bidding for <%= item.name %></h1>
+
+	<section class="items">
+		<div class="card mb-3">
+			<div class="row g-0">
+				<div class="col-md-4">
+					<img src="<%= item.imgURL %>" alt="<%= item.name %>" class="img-fluid rounded-start" />
+				</div>
+				<div class="col-md-8">
+					<div class="card-body">
+						<h5 class="card-title name"><%= item.name %></h5>
+						<p class="card-text">$<span class="quote"><%= item.highestBid || item.basePrice %></span></p>
+						<p class="card-text high"><small class="text-body-secondary">Highest Bidder: <%= item.highestBidder ? item.highestBidder.name : "No bids yet" %></small></p>
+						<div class="input-group">
+							<input type="text" class="form-control" name="userName" id="userName" placeholder="Hesper" aria-label="Bidder's name with +100 and +1000 bid">
+							<button class="bid btn btn-outline-success hundred" type="button">Bid +100</button>
+							<button class="bid btn btn-success thousand" type="button">Bid + 1000</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h4>Bids</h4>
+		<div class="list-group list-group bids">
+			<% for( let i = 0; i < item.bids.length; i++ ) { %>
+			<li class="list-group-item d-flex justify-content-between align-items-start">
+				<div class="ms-2 me-auto">
+					<div class="fw-bold"><%= item.bids[i].user.name %></div>
+					<% if (item.bids[i].premium) { %>
+						<span class="text-success">Premium bid for <%= item.name %></span>
+					<% } else { %>
+						Basic bid for <%= item.name %>
+					<% } %>
+				</div>
+				<span class="badge text-bg-primary rounded-pill bid">$<%= item.bids[i].bid %></span>
+			</li>
+			<% } %>
+		</div>
+	</section>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>

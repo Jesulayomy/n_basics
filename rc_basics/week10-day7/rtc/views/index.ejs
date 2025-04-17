@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="description">
+	<meta name="keywords" content="onetwothree">
+
+	<title>Bidding</title>
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body class="p-5">
+	<h1 class="text-center">Public Bidding</h1>
+
+	<section class="items">
+		<% items.forEach(item => { %>
+		<a href="/items/<%= item._id %>" class="link-underline link-underline-opacity-0">
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="<%= item.imgURL %>" alt="<%= item.name %>" class="img-fluid rounded-start" />
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title name"><%= item.name %></h5>
+							<p class="card-text quote"><%= item.highestBid || item.basePrice %></p>
+							<p class="card-text high"><small class="text-body-secondary">Highest Bidder: <%= item.highestBidder ? item.highestBidder.name : "No bids yet" %></small></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</a>
+		<% }) %>
+	</section>
+
+	<!-- <script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="js/main.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+</html>
