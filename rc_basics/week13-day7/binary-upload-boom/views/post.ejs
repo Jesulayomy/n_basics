@@ -1,0 +1,86 @@
+<%- include('partials/header') -%>
+
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <h2><%= post.title %></h2>
+      <img class="img-fluid" src="<%= post.image%>" />
+      <div class="row justify-content-between">
+        <form
+          class="col"
+          action="/post/likePost/<%= post.id %>?_method=PUT"
+          method="POST"
+        >
+          <button class="btn btn-lg" type="submit"><i class="text-danger fa fa-heart"></i> <%= post.likes %> Likes</button>
+        </form>
+        <% if(post.user == user.id) { %>
+          <form
+            action="/post/deletePost/<%= post.id %>?_method=DELETE"
+            method="POST"
+            class="col text-end"
+          >
+            <button class="btn btn-lg" type="submit"><i class="fa fa-trash text-danger"></i></button>
+          </form>
+        <%}%>
+      </div>
+    </div>
+    <div class="col-3 mt-5">
+      <h5><%= post.caption %></h5>
+      <form
+        action="/post/<%= post.id %>/comment"
+        method="POST"
+        class="input-group mb-3"
+      >
+        <input class="form-control" type="text" name="comment" placeholder="Leave a comment . . ." />
+        <button class="btn btn-primary fa fa-comment" type="submit"></button>
+      </form>
+      <h5>Comments</h5>
+      <ul class="list-group">
+        <% for(let i = 0; i < comments.length; i++) {%>
+          <li class="list-group-item pe-1 d-flex justify-content-between align-items-start">
+            <div class="">
+              <div class="d-flex w-100">
+                <h6 class="">
+                  <%= comments[i].postedBy.userName %>
+                  <small class="text-secondary"><%= comments[i].timePassed(comments[i].createdAt) %></small>
+                </h6>
+              </div>
+              <p class="mb-1">
+                <%= comments[i].text %>
+              </p>
+            </div>
+            <div class="row">
+              <form
+                class="col"
+                action="/post/likeComment/<%= comments[i]._id %>?_method=PUT"
+                method="POST"
+              >
+                <button class="btn btn-md row p-0" type="submit">
+                  <i class="text-danger fa fa-heart"></i>
+                  <small class="text-secondary"><%= comments[i].likes %></small>
+                </button>
+              </form>
+              <% if (post.user == user.id) { %>
+                <form
+                  class="col"
+                  action="/post/deleteComment/<%= comments[i]._id %>?_method=DELETE"
+                  method="POST"
+                >
+                  <button class="btn btn-md row p-0" type="submit">
+                    <i class="text-danger fa fa-trash"></i>
+                  </button>
+                </form>
+              <% } %>
+            </div>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+    <div class="col-6 mt-5">
+      <a class="btn btn-primary" href="/profile">Return to Profile</a>
+      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
