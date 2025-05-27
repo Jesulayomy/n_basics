@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "image-js": "^0.37.0",
+    "nodemon": "^3.1.10",
+    "tesseract.js": "^6.0.1",
+    "text-from-image": "^1.1.1"
+  }
+}
