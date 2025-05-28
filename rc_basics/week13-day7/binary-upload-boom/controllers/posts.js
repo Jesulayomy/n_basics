@@ -23,7 +23,7 @@ module.exports = {
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
-      const comments = await Comment.find({ postId: req.params.id }).populate('postedBy').sort('-likes');
+      const comments = await Comment.find({ postId: req.params.id, deleted: false }).populate('postedBy').sort('-likes');
       res.render("post.ejs", { post: post, user: req.user, comments });
     } catch (err) {
       console.log(err);
@@ -100,11 +100,15 @@ module.exports = {
   },
   deleteComment: async (req, res) => {
     try {
-      await Comment.remove({ _id: req.params.id });
-      res.redirect("back");
+      await Comment.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          deleted: true,
+        }
+      );
+      res.redirect('back');
     } catch (err) {
       console.log(err);
-      res.redirect("back");
     }
   },
 };
