@@ -14,9 +14,10 @@
 //     .catch(err => console.error(err));
 
 async function getDoggo() {
-    const res = await fetch('https://schub-api.jesulayomi.tech/api/students');
+    const res = await fetch('https://schub-api.jesulayomi.tech/api/stats');
     const data = await res.json();
-    console.log(data);
+    return data;
 }
 
-getDoggo();
+const DATA = await getDoggo();
+console.log(DATA);
