@@ -1,7 +1,10 @@
 const http = require('http');
 const fs = require('fs');
 const url = require('url');
-const figlet = require('figlet');
+
+const API = {
+  'hits': 0,
+}
 
 const server = http.createServer(function(req, res) {
   const page = url.parse(req.url).pathname;
@@ -14,18 +17,10 @@ const server = http.createServer(function(req, res) {
     });
   } else if (page == '/api') {
     res.writeHead(200, {'Content-Type': 'application/json'});
-    const jsonObject = {
-      'key': 'value',
-      'count': 1,
-    }
-    res.end(JSON.stringify(jsonObject));
+    API.hits += 1;
+    res.end(JSON.stringify(API));
   } else if (page == '/css/style.css') {
     fs.readFile('css/style.css', function(err, data) {
-      res.write(data);
-      res.end();
-    });
-  } else if (page == '/css/normalize.css') {
-    fs.readFile('css/normalize.css', function(err, data) {
       res.write(data);
       res.end();
     });
@@ -42,16 +37,9 @@ const server = http.createServer(function(req, res) {
       res.end();
     });
   } else {
-    figlet('404!!', function(err, data) {
-      if (err) {
-          console.log('Something went wrong...');
-          console.dir(err);
-          return;
-      }
-      res.writeHead(404, 'Not Found');
-      res.write(data);
-      res.end();
-    });
+    res.writeHead(404, 'Not Found');
+    res.write("Something went wrong!");
+    res.end();
   }
 });
 
